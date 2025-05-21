@@ -471,7 +471,7 @@ pnpm docker:down
 El proyecto utiliza las siguientes variables de entorno para la conexión a la base de datos:
 
 ```env
-DATABASE_URL="postgresql://admin:admin@localhost:5432/mydb?schema=public"
+DATABASE_URL="postgresql://admin:admin@localhost:5432/mydb"
 ```
 
 ### Beneficios de esta Configuración
