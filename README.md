@@ -1,6 +1,6 @@
 # Node.js Minimal Template v1
 
-Este es un template minimalista para proyectos Node.js que utiliza TypeScript, Express, Prisma y otras tecnologías modernas.
+Template minimalista para backends modernos NodeJS.
 
 ## 🚀 Tecnologías Utilizadas
 
