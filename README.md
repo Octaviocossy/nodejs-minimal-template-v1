@@ -46,7 +46,7 @@ pnpm docker:up
 5. Ejecutar migraciones de Prisma:
 ```bash
 pnpm prisma:generate
-pnpm prisma:migrate
+pnpm prisma:migrate nombre_de_la_migracion
 ```
 
 6. Iniciar el servidor en modo desarrollo:
@@ -126,6 +126,83 @@ main()
     process.exit(1);
   });
 ```
+
+## 🔄 Flujo de Trabajo con Prisma
+
+El proyecto utiliza Prisma como ORM y sigue un flujo de trabajo específico para gestionar las migraciones de la base de datos.
+
+### Comandos de Prisma
+
+```bash
+# Generar el cliente de Prisma
+pnpm prisma:generate
+
+# Crear y aplicar una nueva migración
+pnpm prisma:migrate nombre_de_la_migracion
+```
+
+### Flujo de Trabajo en Desarrollo
+
+1. **Modificar el Schema**
+   ```prisma
+   // prisma/schema.prisma
+   model Task {
+     id        String   @id @default(uuid())
+     title     String
+     completed Boolean  @default(false)
+     // Agregar nuevos campos aquí
+   }
+   ```
+
+2. **Crear y Aplicar una Migración**
+   ```bash
+   pnpm prisma:migrate agregar_campo_nuevo
+   ```
+   - Esto crea un nuevo archivo en `prisma/migrations/`
+   - La migración incluye los cambios SQL necesarios
+   - Aplica la migración a la base de datos
+   - Regenera el cliente de Prisma
+   - Actualiza el schema de la base de datos
+
+### Buenas Prácticas
+
+1. **Nombrado de Migraciones**
+   - Usar nombres descriptivos
+   - Incluir el propósito del cambio
+   - Ejemplo: `agregar_campo_fecha_creacion`
+
+2. **Versionado**
+   - Incluir las migraciones en el control de versiones
+   - No modificar migraciones ya aplicadas
+   - Crear nuevas migraciones para cambios adicionales
+
+3. **Backup**
+   - Realizar backup antes de aplicar migraciones
+   - Verificar la integridad de los datos después de la migración
+
+4. **Testing**
+   - Probar las migraciones en un entorno similar a producción
+   - Verificar la compatibilidad con datos existentes
+   - Asegurar que las migraciones sean reversibles
+
+### Estructura de Directorios
+
+```
+prisma/
+├── migrations/           # Migraciones de la base de datos
+│   ├── 20240321000000_initial/
+│   └── 20240321000001_agregar_campo/
+├── schema.prisma         # Schema de Prisma
+└── seed.ts               # Script de seed
+```
+
+### Notas Importantes
+
+- Siempre generar el cliente de Prisma después de modificar el schema
+- No modificar migraciones ya aplicadas
+- Mantener un registro de las migraciones aplicadas
+- Realizar pruebas exhaustivas antes de aplicar migraciones
+- Considerar el impacto en los datos existentes al crear nuevas migraciones
 
 ## 🏗️ Flujo de Desarrollo
 
