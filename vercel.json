@@ -4,11 +4,7 @@
   "builds": [
     {
       "src": "./api/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["api/**/*"],
-        "buildCommand": "prisma generate"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [{ "src": "/(.*)", "dest": "/api/index.ts" }]
