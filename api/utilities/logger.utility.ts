@@ -39,28 +39,39 @@ const format = winston.format.combine(
 );
 
 // Define which transports the logger must use
-const transports = [
-  // Console transport
-  new winston.transports.Console(),
+const getTransports = () => {
+  const env = process.env.NODE_ENV || 'development';
+  const isDevelopment = env === 'development';
 
-  // File transport for all logs
-  new winston.transports.File({
-    filename: path.join('logs', 'all.log'),
-  }),
+  const transports: winston.transport[] = [
+    // Console transport
+    new winston.transports.Console(),
+  ];
 
-  // File transport for error logs
-  new winston.transports.File({
-    filename: path.join('logs', 'error.log'),
-    level: 'error',
-  }),
-];
+  // Add file transports only in development
+  if (isDevelopment) {
+    transports.push(
+      // File transport for all logs
+      new winston.transports.File({
+        filename: path.join('logs', 'all.log'),
+      }),
+      // File transport for error logs
+      new winston.transports.File({
+        filename: path.join('logs', 'error.log'),
+        level: 'error',
+      })
+    );
+  }
+
+  return transports;
+};
 
 // Create the logger instance
 const logger = winston.createLogger({
   level: level(),
   levels,
   format,
-  transports,
+  transports: getTransports(),
 });
 
 export { logger };
