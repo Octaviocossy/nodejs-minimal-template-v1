@@ -1,4 +1,4 @@
-import { TMiddlewareSchemaParams } from '@/models';
+import { TMiddlewareSchemaParams } from '../models';
 
 export const zodValidator: TMiddlewareSchemaParams = (schema) => (req, _res, next) => {
   try {

@@ -2,8 +2,8 @@ import { ErrorRequestHandler } from 'express';
 import { ZodError } from 'zod';
 import { Output } from '@hapi/boom';
 
-import { TMiddlewareErrorParams } from '@/models';
-import { logger } from '@/utilities';
+import { TMiddlewareErrorParams } from '../models';
+import { logger } from '../utilities';
 
 export interface BoomError extends ErrorRequestHandler {
   isBoom: boolean;

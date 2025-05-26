@@ -1,7 +1,6 @@
-import { TMiddlewareParams } from '@/models';
-import { Prisma } from '@/config';
-
-import { DELETE_TASK_SCHEMA_TYPE, TASK_SCHEMA_TYPE, UPDATE_TASK_SCHEMA_TYPE } from '@/schemas';
+import { TMiddlewareParams } from '../models';
+import { Prisma } from '../config';
+import { DELETE_TASK_SCHEMA_TYPE, TASK_SCHEMA_TYPE, UPDATE_TASK_SCHEMA_TYPE } from '../schemas';
 
 export const get_all: TMiddlewareParams = async (_req, res, next) => {
   try {

@@ -1,14 +1,6 @@
 {
   "version": 2,
   "name": "nodejs-minimal-template-v1",
-  "builds": [
-    {
-      "src": "./api/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["api/**/*"]
-      }
-    }
-  ],
+  "builds": [{ "src": "./api/index.ts", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/api/index.ts" }]
 }

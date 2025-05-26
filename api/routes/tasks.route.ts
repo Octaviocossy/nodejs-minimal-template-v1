@@ -1,8 +1,8 @@
 import express, { Router } from 'express';
 
-import * as Controller from '@/controllers/tasks.controller';
-import { DELETE_TASK_SCHEMA, TASK_SCHEMA, UPDATE_TASK_SCHEMA } from '@/schemas';
-import { zodValidator } from '@/middlewares';
+import * as Controller from '../controllers/tasks.controller';
+import { DELETE_TASK_SCHEMA, TASK_SCHEMA, UPDATE_TASK_SCHEMA } from '../schemas';
+import { zodValidator } from '../middlewares';
 
 const router: Router = express.Router();
 

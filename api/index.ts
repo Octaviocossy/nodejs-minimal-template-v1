@@ -2,8 +2,7 @@ import { config } from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 
-import { boomErrorHandler, errorHandler, zodErrorHandler } from '@/middlewares';
-
+import { boomErrorHandler, errorHandler, zodErrorHandler } from './middlewares';
 import { Router } from './routes';
 
 const app = express();
