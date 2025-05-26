@@ -33,15 +33,15 @@
     "prettier": "^3.5.3",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
-    "@prisma/client": "^6.8.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "prisma": "^6.8.2",
     "winston": "^3.17.0",
     "zod": "^3.23.8"
   }
